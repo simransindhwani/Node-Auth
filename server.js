@@ -21,8 +21,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'sendingemails732@gmail.com',
-      pass: 'Univer$ity12'
+      user: 'emailid',
+      pass: 'emailpass'
     }
   });
 
@@ -53,10 +53,10 @@ app.post('/login', (req, res) => {
                 if (result.password != password) {
                     res.send("Password Mismatch");
                     var mailOptions = {
-                        from: 'sendingemails732@gmail.com',
+                        from: 'emailid',
                         to: result.email,
                         subject: 'Sending Email using Node.js',
-                        text: 'That was easy! Your default password is \'Univer$ity12\''
+                        text: 'That was easy! Your default password is'
                       };
                       
                       transporter.sendMail(mailOptions, function(error, info){
@@ -67,7 +67,7 @@ app.post('/login', (req, res) => {
                         }
                       });
 
-                      Register.findOneAndUpdate(password, 'Univer$ity12');
+                    
                       
                 }
                 else
